@@ -1,4 +1,4 @@
-body{font-size: 75%;font-family: sans-serif;}
+body{font-size: 75%;font-family: sans-serif;background: #f1f1f1}
 		*{margin: 0}
 		a{text-decoration: none;}
 
@@ -13,9 +13,13 @@ body{font-size: 75%;font-family: sans-serif;}
 
 
 		header section{background: #183544;height: 3em;border-top: 1px solid black;}
-		header section ul{list-style-type: none;}
+		header section ul{list-style-type: none;position: relative;}
 		header section li{float: left;margin-top: .7em;}
 		header section a{color: white;padding: 1.4em;}
+		header section ul ul{display: none;position: absolute;top: 2em;
+							background:#3b4045;margin: 0;width: 100%;height: 200px;
+							padding: ;left: 0 }
+		header section ul li:hover ul{display: block;}
 
 		main{position:absolute;top: 14em;z-index: -1}
 		main div li{display: block;float: left;background: #c8d2dd;padding: 1em;margin: .5em;width: 15em;font-weight: bold;text-align: center;	}

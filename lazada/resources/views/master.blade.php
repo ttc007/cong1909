@@ -10,6 +10,7 @@
 <header>
 	<div>
 			<ul>
+			<li><a href="{{url('admin')}}" style="color:#f36f36;">Admin</a></li>
 			<li><a href="">CHANGE LANGUAGE</a></li>
 			<li><a href="">Dang ki</a></li>
 			<li><a href="">Dang nhap</a></li>
@@ -28,16 +29,26 @@
 	</nav>
 	<section>
 		<ul>
-			<li><a href="">Dien tu</a></li>
-			<li><a href="">Thoi trang nu</a></li>
-			<li><a href="">Thoi trang nam</a></li>
-			<li><a href="">Nha cua & doi song</a></li>
-			<li><a href="">Suc khoe & Sac dep</a></li>
-			<li><a href="" >Tre em & do choi</a></li>
-			<li><a href="">The thao & Du lich</a></li>
-			<li><a href="">Xe may & Bach hoa</a></li>
+			@foreach($industry_all as $industry)
+				<li><a href="">{{ $industry->name }}</a>
+					<ul>
+				 	@foreach($category_all as $category)
+				 		@if( $category->industry_id == $industry->id)
+				 		<li><a href="">{{ $category->name }}</a></li>
+				 		@endif
+				 	@endforeach
+				 	<h3 style="float: left;clear: left;margin-top: 1em">Thương hiệu hàng đầu</h3>
+				 	@foreach($trademark_all as $trademark)
+				 		@if( $trademark->industry_id == $industry->id)
+				 		<li style="float: left;clear: left;"><a href="">{{ $trademark->name }}</a></li>
+				 		@endif
+				 	@endforeach
+				 	</ul>
+				</li>
+			@endforeach
+			
 			<li><a href=""  style="color:#f36f36;">Khuyen mai</a></li>
-			<li><a href="">Thuong hieu lon</a></li>
+			<li><a href="">Thương hiệu lớn</a></li>
 		</ul>
 	</section>
 </header>
@@ -86,6 +97,15 @@ function openTab(evt, cityName) {
     evt.currentTarget.className += " active";
 }
 </script>
+
+@foreach($product_all as $product)
+<div style="width: 250px;height: 250px;float: left;">
+<img src="{{'images/'.$product->id.'.png'}}" style="width: 200px;height: 200px">
+<h1>{{ $product->name }}</h1><br>
+<h3>Giá:{{ $product->price }}</h3>
+
+</div>
+@endforeach
 </main>
 
 
