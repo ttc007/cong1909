@@ -5,7 +5,7 @@
 	<style type="text/css">
 		table{border-collapse: collapse;}
 		td,th{border: 1px solid black}
-		#addproduct table td,th{border: none}
+		#addproduct td,th{border: none}
 		.tabcontent{display: none;}
 	</style>
 </head>
@@ -14,7 +14,7 @@
 		
 			<button onclick ="openTab(event, 'Thêm Category')" class="tablinks"><h1>Thêm Category</h1></button>
 			<button onclick="openTab(event, 'Thêm thương hiệu')" class="tablinks"><h1>Thêm thương hiệu</h1></button>
-			<button onclick="openTab(event, 'Thêm sản phẩm')" class="tablinks"><h1>Thêm sản phẩm</h1></button>
+			<button onclick="openTab(event, 'Thêm sản phẩm')" class="tablinks"><h1>Thêm/Sửa sản phẩm</h1></button>
 			
 		
 		<div id="Thêm Category" class="tabcontent">
@@ -58,12 +58,12 @@
 				<td>{{$trademark->industry['name']}}</td>
 			</tr>
 		@endforeach
-		</table id='addproduct'>
-		</div>
+		</table >
+		</div >
 		
 		<div id="Thêm sản phẩm" class="tabcontent">
 		<h1>Thêm sản phẩm</h1>
-	<table>
+	<table id='addproduct'>
 	{{Form::open(['url'=>'storeProduct','files' => true])}}
 
 	<tr>
@@ -95,6 +95,10 @@
 		<td>{{ Form::select('trademark_id',$trademark_pluck)}}</td>
 	</tr>
 	<tr>
+		<td>Shop:</td>
+		<td>{{ Form::select('shop_id',$shop_pluck)}}</td>
+	</tr>
+	<tr>
 		<td></td>
 		<td>{{Form::submit('Add')}}</td>
 	</tr>
@@ -109,14 +113,16 @@
 			<th>Giá</th>
 			<th>Thể loại</th>
 			<th>Thương hiệu</th>
+			<th>Cửa hàng</th>
 			<th>Image</th>
 		</tr>
 	@foreach($product_all as $product)
 		<tr>
 			<td>{{$product->name}}</td>
-			<td>{{$product->price}}</td>
+			<td>{{number_format($product->price)}}</td>
 			<td>{{$product->category['name']}}</td>
 			<td>{{$product->trademark['name']}}</td>
+			<td>{{$product->shop['name']}}</td>
 			<td><a href="{{url('update/product/'.$product->id)}}">Update</a></td>
 		</tr>
 	@endforeach

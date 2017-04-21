@@ -17,7 +17,7 @@ class CreateCategorysTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('industry_id');
-            $table->string('_token');
+            $table->string('_token')->nullable();
             $table->timestamps();
         });
     }

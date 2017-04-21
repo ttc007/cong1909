@@ -5,7 +5,7 @@
 </head>
 <body>
 <div id="Thêm sản phẩm" class="tabcontent">
-		<h1>Thêm sản phẩm</h1>
+		<h1>Cập nhật sản phẩm</h1>
 	<table>
 	{{Form::open(['url'=>'updateProduct','files'=>'true'])}}
 	<tr>

@@ -13,4 +13,7 @@ class Products extends Model
     public function trademark(){
     	return $this->belongsTo('App\Trademarks');
     }
+     public function shop(){
+    	return $this->belongsTo('App\Shop');
+    }
 }

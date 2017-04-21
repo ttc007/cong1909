@@ -9,6 +9,7 @@ use App\Industrys;
 use App\Categorys;
 use App\Trademarks;
 use App\Products;
+use App\Shop;
 
 
 class AdminController extends Controller
@@ -18,12 +19,14 @@ class AdminController extends Controller
     	$industry_pluck=Industrys::pluck('name','id');
     	$category_pluck=Categorys::pluck('name','id');
     	$trademark_pluck=Trademarks::pluck('name','id');
+        $shop_pluck=Shop::pluck('name','id');
     	$category_all=Categorys::all();
     	$trademark_all=Trademarks::all();
     	$product_all=Products::all();
     	return view('admin')->with('industry_pluck',$industry_pluck)
     						->with('category_pluck',$category_pluck)
     						->with('trademark_pluck',$trademark_pluck)
+                            ->with('shop_pluck',$shop_pluck)
     						->with('category_all',$category_all)
     						->with('trademark_all',$trademark_all)
     						->with('product_all',$product_all);

@@ -31,5 +31,21 @@ class CategorysTableSeeder extends Seeder
             'name' => 'Phụ kiện',
             'industry_id' => '1'
         ]);
+           DB::table('categorys')->insert([
+            'name' => 'Máy ảnh',
+            'industry_id' => '1'
+        ]);
+            DB::table('categorys')->insert([
+            'name' => 'Máy quay',
+            'industry_id' => '1'
+        ]);
+             DB::table('categorys')->insert([
+            'name' => 'Phụ kiện máy ảnh',
+            'industry_id' => '1'
+        ]);
+              DB::table('categorys')->insert([
+            'name' => 'TiVi',
+            'industry_id' => '1'
+        ]);
     }
 }

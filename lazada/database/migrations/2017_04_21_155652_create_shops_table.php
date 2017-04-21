@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTrademarkTable extends Migration
+class CreateShopsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTrademarkTable extends Migration
      */
     public function up()
     {
-         Schema::create('trademarks', function (Blueprint $table) {
+        Schema::create('shops', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-             $table->string('industry_id');
-             $table->string('_token')->nullable();
-           
+            $table->integer('industry_id');
+            $table->string('_token')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateTrademarkTable extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('trademarks');
+        Schema::dropIfExists('shops');
     }
 }

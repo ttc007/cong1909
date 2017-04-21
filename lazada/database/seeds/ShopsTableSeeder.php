@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TrademarksTableSeeder extends Seeder
+class ShopsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,16 +11,16 @@ class TrademarksTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('trademarks')->insert([
-            'name' => 'Apple',
+         DB::table('shops')->insert([
+            'name' => 'Fpt shop',
             'industry_id' => '1'
         ]);
-        DB::table('trademarks')->insert([
-            'name' => 'Dell',
+        DB::table('shops')->insert([
+            'name' => 'The giới di động',
             'industry_id' => '1'
         ]);
-         DB::table('trademarks')->insert([
-            'name' => 'Samsung',
+         DB::table('shops')->insert([
+            'name' => 'Điện máy xanh',
             'industry_id' => '1'
         ]);
     }
