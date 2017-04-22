@@ -13,18 +13,23 @@
 <h4 style="clear: both;">{{ $product->description }}</h4>
 
 
+<h2>Nhận xét hàng đầu</h2>
+@foreach($review_all as $review)
+<h4>{{$review->email_customer}}</h4>
+{{$review->comment}}<br>
+Vote:{{$review->vote }}*<br>
+@endforeach
 
-
-<h3>Nhận xét</h3>
+<h3>Nhận xét của bạn</h3>
 {{Form::open(['url'=>'reviewProduct'])}}
 <table>
 	<tr>
 		<td>Email:</td>
-		<td>{{ Form::text('email') }}</td>
+		<td>{{ Form::text('email_customer') }}</td>
 	</tr>
 	<tr>
-		<td>Coment</td>
-		<td>{{Form::text('comment')}}</td>
+		<td>Comment</td>
+		<td>{{Form::textarea('comment')}}</td>
 	</tr>
 	<tr>
 		<td>Vote</td>
@@ -32,10 +37,10 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td>{{Form::submit('Add')}}</td>
+		<td>{{Form::submit('Review')}}</td>
 	</tr>
 	
-	
+	{{Form::hidden('product_id',$product->id)}}
 	{{Form::close()}}
 
 </table>

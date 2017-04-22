@@ -17,8 +17,11 @@ Route::get('showbycategory/{id}', 'ProductController@showbycategory');
 Route::get('showbytrademark/{id}', 'ProductController@showbytrademark');
 Route::get('showbyshop/{id}', 'ProductController@showbyshop');
 Route::get('showoneproduct/{id}', 'ProductController@showoneproduct');
+Route::post('reviewProduct', 'ProductController@reviewProduct');
 
 Route::get('update/product/{id}', 'AdminController@viewupdateProduct');
+Route::get('deleteReview/{id}', 'AdminController@deleteReview');
+
 Route::get('addtocart/{id}', 'CartController@addtocart');
 Route::get('viewcart', 'CartController@viewcart');
 Route::get('removecart/{rowId}', 'CartController@removecart');

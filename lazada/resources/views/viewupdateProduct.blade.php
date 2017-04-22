@@ -18,7 +18,7 @@
 	</tr>
 	<tr>
 		<td>Description:</td>
-		<td>{{ Form::text('description',$product->description) }}</td>
+		<td>{{ Form::textarea('description',$product->description) }}</td>
 	</tr>
 	<tr>
 		<td>Price:</td>
@@ -30,11 +30,11 @@
 	</tr>
 	<tr>
 		<td>Category:</td>
-		<td>{{ Form::select('category_id',$category_pluck)}}</td>
+		<td>{{ Form::select('category_id',$category_pluck,$product->category_id)}}</td>
 	</tr>
 	<tr>
 		<td>Trademark:</td>
-		<td>{{ Form::select('trademark_id',$trademark_pluck)}}</td>
+		<td>{{ Form::select('trademark_id',$trademark_pluck,$product->trademark_id)}}</td>
 	</tr>
 	<tr>
 		<td></td>
@@ -44,7 +44,14 @@
 	{{Form::hidden('id',$product->id)}}
 	{{Form::close()}}
 	</table>
-	
+	<h2>Nhận xét hàng đầu</h2>
+	@foreach($review_all as $review)
+	<h4>{{$review->email_customer}}</h4>
+	{{$review->comment}}<br>
+	Vote:{{$review->vote }}*<br>
+	<a href="{{url('deleteReview/'.$review->id)}}">Delete</a><br>
+	@endforeach
 	</div>
+
 </body>
 </html>

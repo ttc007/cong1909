@@ -76,7 +76,7 @@
 	</tr>
 	<tr>
 		<td>Description:</td>
-		<td>{{ Form::text('description') }}</td>
+		<td>{{ Form::textarea('description') }}</td>
 	</tr>
 	<tr>
 		<td>Price:</td>

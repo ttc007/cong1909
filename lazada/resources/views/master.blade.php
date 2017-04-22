@@ -84,7 +84,7 @@
 @section('content')
 	<div>
 		<ul>
-			<li id='khuyenmaiTab' onmouseover="openTab(event, 'Khyen mai')" class="tablinks"><a href="" >Khyen mai</a></li>
+			<li id='khuyenmaiTab' onmouseover="openTab(event, 'Khyen mai')" class="tablinks"><a href="" >Khyến mãi Hot</a></li>
 			<li onmouseover="openTab(event, 'Thuong hieu noi bat')" class="tablinks"><a href="" >Thuong hieu noi bat</a></li>
 			<li onmouseover="openTab(event, 'Danh muc nganh hang')" class="tablinks"><a href="" >Danh muc&nganh hang</a></li>
 			<li id='samsungTab'onmouseover="openTab(event, 'Tuan le SamSumg')" class="tablinks"><a href="" >Tuan le SamSumg</a></li>

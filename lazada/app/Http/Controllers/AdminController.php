@@ -10,6 +10,7 @@ use App\Categorys;
 use App\Trademarks;
 use App\Products;
 use App\Shop;
+use App\Review;
 
 
 class AdminController extends Controller
@@ -51,9 +52,13 @@ class AdminController extends Controller
     	$product=Products::find($id);
     	$category_pluck=Categorys::pluck('name','id');
     	$trademark_pluck=Trademarks::pluck('name','id');
+
+        $review_all=Review::where('product_id',$id)->get();
     	return view('viewupdateProduct')->with('category_pluck',$category_pluck)
     									->with('trademark_pluck',$trademark_pluck)
-    									->with('product',$product);
+    									->with('product',$product)
+                                        ->with('review_all',$review_all);
+
     }
     public function updateProduct(){
 
@@ -71,5 +76,9 @@ class AdminController extends Controller
 			$p=Products::find($id);
 			$p->update(Input::all());
 			return redirect('admin');
+    }
+    public function deleteReview($id){
+            Review::destroy($id);
+            return redirect('admin');
     }
 }

@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+
 use App\Products;
 use App\Industrys;
 use App\Categorys;
 use App\Trademarks;
 use App\Shop;
+use App\Review;
+
 
 class ProductController extends Controller
 {
@@ -79,14 +83,19 @@ class ProductController extends Controller
         $industry_all=Industrys::all();
         $category_all=Categorys::all();
         $trademark_all=Trademarks::all();
-        
+        $review_all=Review::where('product_id',$id)->get();
        
         $product=Products::find($id);
         return view('showoneproduct')->with('product',$product)
                               ->with('industry_all',$industry_all)
                               ->with('category_all',$category_all)
                               ->with('trademark_all',$trademark_all)
-                              ->with('shop_all',$shop_all);
+                              ->with('shop_all',$shop_all)
+                              ->with('review_all',$review_all);
 
     }
+     public function reviewProduct(){
+        Review::insert(Input::all());
+        return redirect('/');
+     }
 }
